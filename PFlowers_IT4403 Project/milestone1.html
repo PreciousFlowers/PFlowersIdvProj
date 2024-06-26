@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milestone 1: JSON Data Validation and Display</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Milestone 1: JSON Data Validation and Display</h1>
+    </header>
+    <div class="container">
+        <h2>Validated and Beautified JSON Data</h2>
+        <pre id="jsonData"></pre>
+    </div>
+    <footer>
+        <p>&copy; 2024 Precious Flowers. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.getJSON('json-files/file.json', function(data) {
+                $('#jsonData').text(JSON.stringify(data, null, 4));
+            }).fail(function() {
+                $('#jsonData').text('Error: Could not load JSON data.');
+            });
+        });
+    </script>
+</body>
+</html>
